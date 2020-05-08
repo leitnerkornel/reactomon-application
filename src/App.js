@@ -5,6 +5,7 @@ import Header from './components/layout/Header';
 
 import './App.css';
 import axios from 'axios';
+import PokemonList from './components/pokemonlist/PokemonList';
 
 class App extends Component {
   state = {
@@ -33,9 +34,10 @@ class App extends Component {
           />
           <Route
             path='/pokemons'
-            render={() => (
+            render={(props) => (
               <React.Fragment>
                 <div>Pokémons page</div>
+                <PokemonList pokemons={this.state.pokemons} />
               </React.Fragment>
             )}
           />
