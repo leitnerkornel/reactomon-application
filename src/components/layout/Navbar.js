@@ -4,14 +4,14 @@ import NavbarItem from './NavbarItem';
 class Navbar extends Component {
   render() {
     const navbarTitles = [
-      { id: 1, title: 'Pokémons' },
-      { id: 2, title: 'Types' },
+      { id: 1, title: 'Pokémons', route: 'pokemons' },
+      { id: 2, title: 'Types', route: 'types' },
     ];
 
     return (
       <div style={navbarStyle} className='navbar-container'>
         {navbarTitles.map((item) => (
-          <NavbarItem key={item.id} title={item.title} />
+          <NavbarItem key={item.id} title={item.title} route={item.route} />
         ))}
       </div>
     );
