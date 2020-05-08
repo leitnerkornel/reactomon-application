@@ -6,7 +6,8 @@ class Header extends Component {
     return (
       <header style={headerStyle}>
         <h1>
-          <span style={pokéStyle}>Poké</span>Cyclopedia
+          <span style={pokéStyle}>Poké</span>
+          <span style={cyclopediaStyle}>Cyclopedia</span>
         </h1>
         <Navbar></Navbar>
       </header>
@@ -21,7 +22,34 @@ const headerStyle = {
   padding: '10px',
 };
 
+const cyclopediaStyle = {
+  mozUserSelect: 'none',
+  webkitUserSelect: 'none',
+  msUserSelect: 'none',
+  userSelect: 'none',
+  oUserSelect: 'none',
+  unselectable: 'on',
+  onselectstart: 'return false',
+  onmousedown: 'return false',
+  padding: '5px',
+  borderRadius: '15px',
+  background: '#f00',
+  color: '#fff',
+};
+
 const pokéStyle = {
+  mozUserSelect: 'none',
+  webkitUserSelect: 'none',
+  msUserSelect: 'none',
+  userSelect: 'none',
+  oUserSelect: 'none',
+  unselectable: 'on',
+  onselectstart: 'return false',
+  onmousedown: 'return false',
+  fontStyle: 'italic',
+  padding: '5px',
+  borderRadius: '15px',
+  background: '#fff',
   color: '#f00',
 };
 
