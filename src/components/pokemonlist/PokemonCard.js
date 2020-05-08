@@ -14,7 +14,7 @@ class PokemonCard extends Component {
     const pokemonId = this.getPokemonIdFromUrl();
 
     return (
-      <div>
+      <div style={cardStyle} className={'card'}>
         <PokemonCardPicture pictureId={pokemonId} title={name} />
         <PokemonCardTitle title={name} />
       </div>
@@ -24,6 +24,15 @@ class PokemonCard extends Component {
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
+};
+
+const cardStyle = {
+  display: 'inline-block',
+  width: '300px',
+  textAlign: 'center',
+  border: '4px solid red',
+  borderRadius: '5px',
+  margin: '10px 10px 10px 10px',
 };
 
 export default PokemonCard;

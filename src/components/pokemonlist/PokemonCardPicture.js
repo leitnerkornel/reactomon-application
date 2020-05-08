@@ -9,6 +9,7 @@ class PokemonCardPicture extends Component {
           style={imgStyle}
           src={`https://pokeres.bastionbot.org/images/pokemon/${this.props.pictureId}.png`}
           alt={`This is: ${this.props.title}`}
+          draggable='false'
         />
       </div>
     );
@@ -21,6 +22,7 @@ PokemonCardPicture.propTypes = {
 };
 
 const imgStyle = {
+  padding: '10px',
   height: 200,
   width: 200,
 };

@@ -5,14 +5,26 @@ import { v4 as uuidv4 } from 'uuid';
 
 class PokemonList extends Component {
   render() {
-    return this.props.pokemons.map((item) => (
-      <PokemonCard key={uuidv4()} pokemon={item} />
-    ));
+    return (
+      <div style={pokemonListStyle} className='card-container'>
+        {this.props.pokemons.map((item) => (
+          <PokemonCard key={uuidv4()} pokemon={item} />
+        ))}
+      </div>
+    );
   }
 }
 
 PokemonList.propTypes = {
   pokemons: PropTypes.array.isRequired,
+};
+
+const pokemonListStyle = {
+  width: '1000px',
+  display: 'flex',
+  flexFlow: 'row wrap',
+  textAlign: 'center',
+  alignContent: 'center',
 };
 
 export default PokemonList;
