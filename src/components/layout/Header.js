@@ -23,11 +23,11 @@ const headerStyle = {
 };
 
 const cyclopediaStyle = {
-  mozUserSelect: 'none',
-  webkitUserSelect: 'none',
+  MozUserSelect: 'none',
+  WebkitUserSelect: 'none',
   msUserSelect: 'none',
   userSelect: 'none',
-  oUserSelect: 'none',
+  OUserSelect: 'none',
   unselectable: 'on',
   onselectstart: 'return false',
   onmousedown: 'return false',
@@ -38,11 +38,11 @@ const cyclopediaStyle = {
 };
 
 const pokéStyle = {
-  mozUserSelect: 'none',
-  webkitUserSelect: 'none',
+  MozUserSelect: 'none',
+  WebkitUserSelect: 'none',
   msUserSelect: 'none',
   userSelect: 'none',
-  oUserSelect: 'none',
+  OUserSelect: 'none',
   unselectable: 'on',
   onselectstart: 'return false',
   onmousedown: 'return false',
