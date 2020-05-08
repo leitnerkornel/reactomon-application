@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
 
 class Header extends Component {
   render() {
@@ -7,6 +8,7 @@ class Header extends Component {
         <h1>
           <span style={pokéStyle}>Poké</span>Cyclopedia
         </h1>
+        <Navbar></Navbar>
       </header>
     );
   }
