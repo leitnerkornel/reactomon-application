@@ -11,8 +11,31 @@ class App extends Component {
       <Router>
         <div className='App'>
           <Header />
-          <Route path='/' />
-          <Route path='/pokemons' />
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <React.Fragment>
+                <div>Main page</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path='/pokemons'
+            render={() => (
+              <React.Fragment>
+                <div>Pokémons page</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path='/types'
+            render={() => (
+              <React.Fragment>
+                <div>Types page</div>
+              </React.Fragment>
+            )}
+          />
         </div>
       </Router>
     );
