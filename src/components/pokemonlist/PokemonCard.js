@@ -27,7 +27,10 @@ PokemonCard.propTypes = {
 };
 
 const cardStyle = {
-  display: 'inline-block',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  // display: 'inline-block',
   width: '300px',
   textAlign: 'center',
   border: '4px solid red',
