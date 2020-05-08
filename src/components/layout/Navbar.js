@@ -4,6 +4,7 @@ import NavbarItem from './NavbarItem';
 class Navbar extends Component {
   render() {
     const navbarTitles = [
+      { id: 0, title: 'Home', route: '' },
       { id: 1, title: 'Pokémons', route: 'pokemons' },
       { id: 2, title: 'Types', route: 'types' },
     ];
