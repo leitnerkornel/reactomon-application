@@ -4,8 +4,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+  state = {
+    pokemons: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon')
+      .then((res) => this.setState({ pokemons: res.data.results }));
+  }
+
   render() {
     return (
       <Router>
