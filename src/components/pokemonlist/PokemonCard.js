@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonCardTitle from './PokemonCardTitle';
 import PokemonCardPicture from './PokemonCardPicture';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class PokemonCard extends Component {
   getPokemonIdFromUrl = () => {
@@ -14,9 +15,17 @@ class PokemonCard extends Component {
     const pokemonId = this.getPokemonIdFromUrl();
 
     return (
-      <div style={cardStyle} className={'card'}>
-        <PokemonCardPicture pictureId={pokemonId} title={name} />
-        <PokemonCardTitle title={name} />
+      <div style={{ margin: '10px' }}>
+        <Link to={`/pokemon/${pokemonId}`}>
+          <div
+            style={cardStyle}
+            className={'card'}
+            onClick={this.props.getDetails.bind(this, pokemonId)}
+          >
+            <PokemonCardPicture pictureId={pokemonId} title={name} />
+            <PokemonCardTitle title={name} />
+          </div>
+        </Link>
       </div>
     );
   }
@@ -24,6 +33,7 @@ class PokemonCard extends Component {
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
+  getDetails: PropTypes.func.isRequired,
 };
 
 const cardStyle = {
@@ -35,7 +45,8 @@ const cardStyle = {
   textAlign: 'center',
   border: '4px solid red',
   borderRadius: '5px',
-  margin: '10px 10px 10px 10px',
+  padding: '10px',
+  margin: 'auto',
 };
 
 export default PokemonCard;

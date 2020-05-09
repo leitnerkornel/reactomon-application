@@ -7,11 +7,13 @@ import './App.css';
 import axios from 'axios';
 import PokemonList from './components/pokemonlist/PokemonList';
 import TypeList from './components/typelist/TypeList';
+import PokemonDetail from './components/pokemondetail/PokemonDetail';
 
 class App extends Component {
   state = {
     pokemons: [],
     types: [],
+    detail: [{}],
   };
 
   componentDidMount() {
@@ -23,8 +25,12 @@ class App extends Component {
       .then((res) => this.setState({ types: res.data.results }));
   }
 
+  getDetails = (id) => {
+    console.log('It is called');
+    console.log(id);
+  };
+
   render() {
-    console.log(this.state.types);
     console.log(this.state);
     return (
       <Router>
@@ -44,7 +50,10 @@ class App extends Component {
             render={(props) => (
               <React.Fragment>
                 <div>Pokémons page</div>
-                <PokemonList pokemons={this.state.pokemons} />
+                <PokemonList
+                  pokemons={this.state.pokemons}
+                  getDetails={this.getDetails}
+                />
               </React.Fragment>
             )}
           />
@@ -54,6 +63,15 @@ class App extends Component {
               <React.Fragment>
                 <div>Types page</div>
                 <TypeList types={this.state.types} />
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path={'/pokemon/:pokemonId'}
+            render={(props) => (
+              <React.Fragment>
+                <div>Pokemon Detail Page</div>
+                <PokemonDetail />
               </React.Fragment>
             )}
           />
