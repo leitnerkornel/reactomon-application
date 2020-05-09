@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/layout/Header';
+import Home from './components/pages/Home';
 
 import './App.css';
 import axios from 'axios';
@@ -57,7 +58,11 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={() => <React.Fragment></React.Fragment>}
+            render={() => (
+              <React.Fragment>
+                <Home />
+              </React.Fragment>
+            )}
           />
           <Route
             path='/pokemons'
