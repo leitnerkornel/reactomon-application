@@ -13,7 +13,13 @@ class App extends Component {
   state = {
     pokemons: [],
     types: [],
-    detail: [{}],
+    currentId: '',
+    name: '',
+    height: '',
+    weight: '',
+    base_experience: '',
+    pokemonTypes: [],
+    pokemonAbilities: [],
   };
 
   componentDidMount() {
@@ -26,12 +32,24 @@ class App extends Component {
   }
 
   getDetails = (id) => {
-    console.log('It is called');
-    console.log(id);
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) =>
+      this.setState({
+        currentId: res.data.id.toString(),
+        name: res.data.name,
+        height: res.data.height.toString(),
+        weight: res.data.weight.toString(),
+        base_experience: res.data.base_experience.toString(),
+        pokemonTypes: res.data.types.map((item) => {
+          return item.type.name;
+        }),
+        pokemonAbilities: res.data.abilities.map((item) => {
+          return item.ability.name;
+        }),
+      })
+    );
   };
 
   render() {
-    console.log(this.state);
     return (
       <Router>
         <div className='App'>
@@ -71,7 +89,15 @@ class App extends Component {
             render={(props) => (
               <React.Fragment>
                 <div>Pokemon Detail Page</div>
-                <PokemonDetail />
+                <PokemonDetail
+                  currentId={this.state.currentId}
+                  name={this.state.name}
+                  height={this.state.height}
+                  weight={this.state.weight}
+                  base_experience={this.state.base_experience}
+                  pokemonTypes={this.state.pokemonTypes}
+                  pokemonAbilities={this.state.pokemonAbilities}
+                />
               </React.Fragment>
             )}
           />
