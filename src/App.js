@@ -57,17 +57,12 @@ class App extends Component {
           <Route
             exact
             path='/'
-            render={() => (
-              <React.Fragment>
-                <div>Main page</div>
-              </React.Fragment>
-            )}
+            render={() => <React.Fragment></React.Fragment>}
           />
           <Route
             path='/pokemons'
             render={(props) => (
               <React.Fragment>
-                <div>Pokémons page</div>
                 <PokemonList
                   pokemons={this.state.pokemons}
                   getDetails={this.getDetails}
@@ -79,7 +74,6 @@ class App extends Component {
             path='/types'
             render={(props) => (
               <React.Fragment>
-                <div>Types page</div>
                 <TypeList types={this.state.types} />
               </React.Fragment>
             )}
@@ -88,7 +82,6 @@ class App extends Component {
             path={'/pokemon/:pokemonId'}
             render={(props) => (
               <React.Fragment>
-                <div>Pokemon Detail Page</div>
                 <PokemonDetail
                   currentId={this.state.currentId}
                   name={this.state.name}
