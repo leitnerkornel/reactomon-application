@@ -4,6 +4,8 @@ import PokemonCardPicture from './PokemonCardPicture';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import './card.css';
+
 class PokemonCard extends Component {
   getPokemonIdFromUrl = () => {
     let urlArray = this.props.pokemon.url.split('/');
@@ -40,11 +42,10 @@ const cardStyle = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  // display: 'inline-block',
   width: '300px',
   textAlign: 'center',
-  border: '4px solid red',
-  borderRadius: '5px',
+  border: 'none',
+  borderRadius: '10px',
   padding: '10px',
   margin: 'auto',
 };
