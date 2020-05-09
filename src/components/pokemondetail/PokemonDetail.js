@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import PokemonDetailPicture from './PokemonDetailPicture';
+import PokemonDetailProperties from './PokemonDetailProperties';
+import PokemonDetailAbilities from './PokemonDetailAbilities';
+import PokemonDetailTypes from './PokemonDetailTypes';
 
 class PokemonDetail extends Component {
   render() {
     return (
-      <div>
-        This is a PokemonDetail component
-        {this.props.currentId}
-        {this.props.name}
-        {this.props.height}
-        {this.props.weight}
-        {this.props.base_experience}
-        {this.props.pokemonTypes}
-        {this.props.pokemonAbilities}
+      <div style={{ textAlign: 'center' }}>
+        <PokemonDetailPicture
+          pictureId={this.props.currentId}
+          title={this.props.name}
+        />
+        <PokemonDetailProperties
+          name={this.props.name}
+          experience={this.props.base_experience}
+          height={this.props.height}
+          weight={this.props.weight}
+        />
+        <PokemonDetailAbilities abilities={this.props.pokemonAbilities} />
+        <PokemonDetailTypes types={this.props.pokemonTypes} />
       </div>
     );
   }
