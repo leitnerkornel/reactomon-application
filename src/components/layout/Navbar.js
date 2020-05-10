@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavbarItem from './NavbarItem';
 
-class Navbar extends Component {
-  render() {
-    const navbarTitles = [
-      { id: 0, title: 'Home', route: '' },
-      { id: 1, title: 'Pokémons', route: 'pokemons' },
-      { id: 2, title: 'Types', route: 'types' },
-    ];
+const Navbar = () => {
+  const navbarTitles = [
+    { id: 0, title: 'Home', route: '' },
+    { id: 1, title: 'Pokémons', route: 'pokemons' },
+    { id: 2, title: 'Types', route: 'types' },
+  ];
 
-    return (
-      <div style={navbarStyle} className='navbar-container'>
-        {navbarTitles.map((item) => (
-          <NavbarItem key={item.id} title={item.title} route={item.route} />
-        ))}
-      </div>
-    );
-  }
-}
+  let content = (
+    <div style={navbarStyle} className='navbar-container'>
+      {navbarTitles.map((item) => (
+        <NavbarItem key={item.id} title={item.title} route={item.route} />
+      ))}
+    </div>
+  );
+
+  return content;
+};
 
 const navbarStyle = {
   display: 'flex',
