@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PokemonCardTitle from './PokemonCardTitle';
 import PokemonCardPicture from './PokemonCardPicture';
 import PropTypes from 'prop-types';
@@ -6,28 +6,28 @@ import { Link } from 'react-router-dom';
 
 import './card.css';
 
-class PokemonCard extends Component {
-  getPokemonIdFromUrl = () => {
-    let urlArray = this.props.pokemon.url.split('/');
+const PokemonCard = (props) => {
+  const getPokemonIdFromUrl = () => {
+    let urlArray = props.pokemon.url.split('/');
     return parseInt(urlArray[urlArray.length - 2]);
   };
 
-  render() {
-    const name = this.props.pokemon.name;
-    const pokemonId = this.getPokemonIdFromUrl();
+  const name = props.pokemon.name;
+  const pokemonId = getPokemonIdFromUrl();
 
-    return (
-      <div style={{ margin: '10px' }}>
-        <Link to={`/pokemon/${pokemonId}`}>
-          <div style={cardStyle} className={'card'}>
-            <PokemonCardPicture pictureId={pokemonId} title={name} />
-            <PokemonCardTitle title={name} />
-          </div>
-        </Link>
-      </div>
-    );
-  }
-}
+  let content = (
+    <div style={{ margin: '10px' }}>
+      <Link to={`/pokemon/${pokemonId}`}>
+        <div style={cardStyle} className={'card'}>
+          <PokemonCardPicture pictureId={pokemonId} title={name} />
+          <PokemonCardTitle title={name} />
+        </div>
+      </Link>
+    </div>
+  );
+
+  return content;
+};
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
