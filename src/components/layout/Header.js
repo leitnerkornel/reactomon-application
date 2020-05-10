@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 
-class Header extends Component {
-  render() {
-    return (
-      <header style={headerStyle}>
-        <h1>
-          <span style={pokéStyle}>Poké</span>
-          <span style={cyclopediaStyle}>Cyclopedia</span>
-        </h1>
-        <Navbar></Navbar>
-      </header>
-    );
-  }
-}
+const Header = () => {
+  let content = (
+    <header style={headerStyle}>
+      <h1>
+        <span style={pokéStyle}>Poké</span>
+        <span style={cyclopediaStyle}>Cyclopedia</span>
+      </h1>
+      <Navbar></Navbar>
+    </header>
+  );
+  return content;
+};
 
 const headerStyle = {
   background: '#333',
