@@ -14,15 +14,6 @@ const App = (props) => {
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
 
-  const [pokemonTypes, setPokemonTypes] = useState([]);
-  const [pokemonAbilities, setPokemonAbilities] = useState([]);
-
-  const [currentId, setCurrentId] = useState('');
-  const [name, setName] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight] = useState('');
-  const [baseExperience, setBaseExperience] = useState('');
-
   useEffect(() => {
     axios
       .get('https://pokeapi.co/api/v2/pokemon')
@@ -31,26 +22,6 @@ const App = (props) => {
       .get('https://pokeapi.co/api/v2/type')
       .then((res) => setTypes(res.data.results));
   }, []);
-
-  const getDetails = (id) => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => {
-      setCurrentId(res.data.id.toString());
-      setName(res.data.name);
-      setHeight(res.data.height.toString());
-      setWeight(res.data.weight.toString());
-      setBaseExperience(res.data.base_experience.toString());
-      setPokemonTypes(
-        res.data.types.map((item) => {
-          return item.type.name;
-        })
-      );
-      setPokemonAbilities(
-        res.data.abilities.map((item) => {
-          return item.ability.name;
-        })
-      );
-    });
-  };
 
   let content = (
     <Router>
@@ -69,7 +40,7 @@ const App = (props) => {
           path='/pokemons'
           render={(props) => (
             <React.Fragment>
-              <PokemonList pokemons={pokemons} getDetails={getDetails} />
+              <PokemonList pokemons={pokemons} />
             </React.Fragment>
           )}
         />
@@ -85,15 +56,7 @@ const App = (props) => {
           path={'/pokemon/:pokemonId'}
           render={(props) => (
             <React.Fragment>
-              <PokemonDetail
-                currentId={currentId}
-                name={name}
-                height={height}
-                weight={weight}
-                base_experience={baseExperience}
-                pokemonTypes={pokemonTypes}
-                pokemonAbilities={pokemonAbilities}
-              />
+              <PokemonDetail />
             </React.Fragment>
           )}
         />

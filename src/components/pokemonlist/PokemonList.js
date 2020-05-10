@@ -9,11 +9,7 @@ class PokemonList extends Component {
       <div style={containerStyle}>
         <div style={pokemonListStyle} className='card-container'>
           {this.props.pokemons.map((item) => (
-            <PokemonCard
-              getDetails={this.props.getDetails}
-              key={uuidv4()}
-              pokemon={item}
-            />
+            <PokemonCard key={uuidv4()} pokemon={item} />
           ))}
         </div>
       </div>
@@ -23,7 +19,6 @@ class PokemonList extends Component {
 
 PokemonList.propTypes = {
   pokemons: PropTypes.array.isRequired,
-  getDetails: PropTypes.func.isRequired,
 };
 
 const containerStyle = {

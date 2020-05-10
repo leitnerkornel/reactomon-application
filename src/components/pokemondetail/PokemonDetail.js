@@ -6,7 +6,7 @@ import PokemonDetailProperties from './PokemonDetailProperties';
 import PokemonDetailAbilities from './PokemonDetailAbilities';
 import PokemonDetailTypes from './PokemonDetailTypes';
 
-const PokemonDetail = (props) => {
+const PokemonDetail = () => {
   const [pokemonTypes, setPokemonTypes] = useState([]);
   const [pokemonAbilities, setPokemonAbilities] = useState([]);
 

@@ -19,11 +19,7 @@ class PokemonCard extends Component {
     return (
       <div style={{ margin: '10px' }}>
         <Link to={`/pokemon/${pokemonId}`}>
-          <div
-            style={cardStyle}
-            className={'card'}
-            onClick={this.props.getDetails.bind(this, pokemonId)}
-          >
+          <div style={cardStyle} className={'card'}>
             <PokemonCardPicture pictureId={pokemonId} title={name} />
             <PokemonCardTitle title={name} />
           </div>
@@ -35,7 +31,6 @@ class PokemonCard extends Component {
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
-  getDetails: PropTypes.func.isRequired,
 };
 
 const cardStyle = {
