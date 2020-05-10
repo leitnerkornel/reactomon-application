@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class PokemonCardTitle extends Component {
-  render() {
-    return <div>{this.props.title}</div>;
-  }
-}
+const PokemonCardTitle = (props) => {
+  let content = <div>{props.title}</div>;
+
+  return content;
+};
 
 PokemonCardTitle.propTypes = {
   title: PropTypes.string.isRequired,
