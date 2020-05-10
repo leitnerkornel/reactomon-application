@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export class PokemonDetailProperties extends Component {
-  capitalize = (text) => {
+const PokemonDetailProperties = (props) => {
+  const capitalize = (text) => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
 
-  render() {
-    return (
-      <div>
-        <h2>{this.capitalize(this.props.name)}</h2>
-        <ul>
-          <li>Experience: {this.props.experience}</li>
-          <li>Height: {this.props.height}</li>
-          <li>Weight: {this.props.weight}</li>
-        </ul>
-      </div>
-    );
-  }
-}
+  let content = (
+    <div>
+      <h2>{capitalize(props.name)}</h2>
+      <ul>
+        <li>Experience: {props.experience}</li>
+        <li>Height: {props.height}</li>
+        <li>Weight: {props.weight}</li>
+      </ul>
+    </div>
+  );
+  return content;
+};
 
 PokemonDetailProperties.propTypes = {
   name: PropTypes.string.isRequired,
