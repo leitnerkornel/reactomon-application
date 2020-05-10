@@ -1,30 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import PokemonDetailPicture from './PokemonDetailPicture';
 import PokemonDetailProperties from './PokemonDetailProperties';
 import PokemonDetailAbilities from './PokemonDetailAbilities';
 import PokemonDetailTypes from './PokemonDetailTypes';
 
-class PokemonDetail extends Component {
-  render() {
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <PokemonDetailPicture
-          pictureId={this.props.currentId}
-          title={this.props.name}
-        />
-        <PokemonDetailProperties
-          name={this.props.name}
-          experience={this.props.base_experience}
-          height={this.props.height}
-          weight={this.props.weight}
-        />
-        <PokemonDetailAbilities abilities={this.props.pokemonAbilities} />
-        <PokemonDetailTypes types={this.props.pokemonTypes} />
-      </div>
-    );
-  }
-}
+const PokemonDetail = (props) => {
+  let content = (
+    <div style={{ textAlign: 'center' }}>
+      <PokemonDetailPicture pictureId={props.currentId} title={props.name} />
+      <PokemonDetailProperties
+        name={props.name}
+        experience={props.base_experience}
+        height={props.height}
+        weight={props.weight}
+      />
+      <PokemonDetailAbilities abilities={props.pokemonAbilities} />
+      <PokemonDetailTypes types={props.pokemonTypes} />
+    </div>
+  );
+
+  return content;
+};
 
 PokemonDetail.propTypes = {
   currentId: PropTypes.string.isRequired,
