@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-class NavbarItem extends Component {
-  render() {
-    const title = this.props.title;
-    const route = `/${this.props.route}`;
-    return (
-      <Link to={route} style={linkStyle}>
-        {title}
-      </Link>
-    );
-  }
-}
+const NavbarItem = (props) => {
+  const title = props.title;
+  const route = `/${props.route}`;
+
+  let content = (
+    <Link to={route} style={linkStyle}>
+      {title}
+    </Link>
+  );
+  return content;
+};
 
 NavbarItem.propType = {
   key: PropTypes.object.isRequired,
