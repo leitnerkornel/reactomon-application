@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-class PokemonDetailTypes extends Component {
-  render() {
-    return (
-      <div>
-        <h3>Types</h3>
-        {this.props.types.map((item) => {
-          return [
-            <img
-              key={uuidv4()}
-              style={imgStyle}
-              src={`/pokemon_types/${item}.png`}
-              alt={`This is: ${item}`}
-              draggable='false'
-            />,
-            <h5 key={uuidv4()}>{item}</h5>,
-          ];
-        })}
-      </div>
-    );
-  }
-}
+const PokemonDetailTypes = (props) => {
+  let content = (
+    <div>
+      <h3>Types</h3>
+      {props.types.map((item) => {
+        return [
+          <img
+            key={uuidv4()}
+            style={imgStyle}
+            src={`/pokemon_types/${item}.png`}
+            alt={`This is: ${item}`}
+            draggable='false'
+          />,
+          <h5 key={uuidv4()}>{item}</h5>,
+        ];
+      })}
+    </div>
+  );
+
+  return content;
+};
 
 PokemonDetailTypes.propTypes = {
   types: PropTypes.array.isRequired,
