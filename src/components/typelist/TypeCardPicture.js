@@ -1,24 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class TypeCardPicture extends Component {
-  render() {
-    return (
-      <div>
-        <img
-          style={imgTypeStyle}
-          //src={`https://pokeres.bastionbot.org/images/pokemon/1.png`}
-          src={`/pokemon_types/${this.props.pictureName}.png`}
-          alt={`This is: ${this.props.pictureName}`}
-          //src/pokemon_types/bug.png
-          //src/pokemon_types/fighting.png
-          //home/kornel/advanced/reactomon_app/reactomon/src/pokemon_types/dark.png
-          draggable='false'
-        />
-      </div>
-    );
-  }
-}
+const TypeCardPicture = (props) => {
+  let content = (
+    <div>
+      <img
+        style={imgTypeStyle}
+        src={`/pokemon_types/${props.pictureName}.png`}
+        alt={`This is: ${props.pictureName}`}
+        draggable='false'
+      />
+    </div>
+  );
+
+  return content;
+};
 
 TypeCardPicture.propTypes = {
   pictureName: PropTypes.string.isRequired,
