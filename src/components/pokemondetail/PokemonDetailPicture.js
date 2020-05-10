@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class PokemonDetailPicture extends Component {
-  render() {
-    return (
-      <div>
-        <img
-          style={imgStyle}
-          src={`https://pokeres.bastionbot.org/images/pokemon/${this.props.pictureId}.png`}
-          alt={`This is: ${this.props.title}`}
-          draggable='false'
-        />
-      </div>
-    );
-  }
-}
+const PokemonDetailPicture = (props) => {
+  const { pictureId, title } = props;
+
+  let content = (
+    <div>
+      <img
+        style={imgStyle}
+        src={`https://pokeres.bastionbot.org/images/pokemon/${pictureId}.png`}
+        alt={`This is: ${title}`}
+        draggable='false'
+      />
+    </div>
+  );
+
+  return content;
+};
 
 PokemonDetailPicture.propTypes = {
   pictureId: PropTypes.string.isRequired,
