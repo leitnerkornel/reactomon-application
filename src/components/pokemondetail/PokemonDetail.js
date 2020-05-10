@@ -1,36 +1,65 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import PokemonDetailPicture from './PokemonDetailPicture';
 import PokemonDetailProperties from './PokemonDetailProperties';
 import PokemonDetailAbilities from './PokemonDetailAbilities';
 import PokemonDetailTypes from './PokemonDetailTypes';
 
 const PokemonDetail = (props) => {
+  const [pokemonTypes, setPokemonTypes] = useState([]);
+  const [pokemonAbilities, setPokemonAbilities] = useState([]);
+
+  const [currentId, setCurrentId] = useState('');
+  const [name, setName] = useState('');
+  const [height, setHeight] = useState('');
+  const [weight, setWeight] = useState('');
+  const [baseExperience, setBaseExperience] = useState('');
+
+  const getPokemonIdFromUrl = () => {
+    let urlFragments = window.location.href.split('/');
+    return urlFragments[urlFragments.length - 1];
+  };
+
+  const currentPokemonId = getPokemonIdFromUrl();
+
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${currentPokemonId}`)
+      .then((res) => {
+        setCurrentId(res.data.id.toString());
+        setName(res.data.name);
+        setHeight(res.data.height.toString());
+        setWeight(res.data.weight.toString());
+        setBaseExperience(res.data.base_experience.toString());
+        setPokemonTypes(
+          res.data.types.map((item) => {
+            return item.type.name;
+          })
+        );
+        setPokemonAbilities(
+          res.data.abilities.map((item) => {
+            return item.ability.name;
+          })
+        );
+      });
+  }, [currentPokemonId]);
+
   let content = (
     <div style={{ textAlign: 'center' }}>
-      <PokemonDetailPicture pictureId={props.currentId} title={props.name} />
+      <PokemonDetailPicture pictureId={currentId} title={name} />
       <PokemonDetailProperties
-        name={props.name}
-        experience={props.base_experience}
-        height={props.height}
-        weight={props.weight}
+        name={name}
+        experience={baseExperience}
+        height={height}
+        weight={weight}
       />
-      <PokemonDetailAbilities abilities={props.pokemonAbilities} />
-      <PokemonDetailTypes types={props.pokemonTypes} />
+      <PokemonDetailAbilities abilities={pokemonAbilities} />
+      <PokemonDetailTypes types={pokemonTypes} />
     </div>
   );
 
   return content;
-};
-
-PokemonDetail.propTypes = {
-  currentId: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired,
-  weight: PropTypes.string.isRequired,
-  base_experience: PropTypes.string.isRequired,
-  pokemonTypes: PropTypes.array.isRequired,
-  pokemonAbilities: PropTypes.array.isRequired,
 };
 
 export default PokemonDetail;
