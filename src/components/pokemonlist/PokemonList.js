@@ -17,7 +17,6 @@ const PokemonList = (props) => {
 
   const displayRows = () => {
     const rows = [];
-    console.log(pokemons);
     const numberOfColumns = 3;
     const numberOfRows = pokemons.length / numberOfColumns;
     let counter = 0;
