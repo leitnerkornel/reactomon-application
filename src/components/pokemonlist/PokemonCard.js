@@ -14,7 +14,7 @@ const PokemonCard = (props) => {
         <img
           className='pokemon-card-image'
           src={`${API_PICTURE_URL}${pokemonId}.png`}
-          alt={`This is: ${props.title}`}
+          alt={`This is: ${name}.`}
           draggable='false'
         />
       </div>
@@ -22,14 +22,12 @@ const PokemonCard = (props) => {
   };
 
   return (
-    <div style={{ margin: '10px' }}>
-      <Link to={`/pokemon/${pokemonId}`}>
-        <div className='pokemon-card'>
-          {cardPicture()}
-          <div>{name}</div>
-        </div>
-      </Link>
-    </div>
+    <Link to={`/pokemon/${pokemonId}`}>
+      <div className='pokemon-card'>
+        {cardPicture()}
+        <div className='pokemon-card-name'>{name}</div>
+      </div>
+    </Link>
   );
 };
 
