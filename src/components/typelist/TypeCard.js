@@ -9,11 +9,11 @@ const TypeCard = (props) => {
         <img
           className='type-image'
           src={`/pokemon_types/${name}.png`}
-          alt={`This is: ${props.pictureName}`}
+          alt={`This is: ${name}`}
           draggable='false'
         />
       </div>
-      <div>{name}</div>
+      <div className='type-text'>{name}</div>
     </div>
   );
 
