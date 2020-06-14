@@ -7,7 +7,7 @@ import { API_POKEMON_URL } from '../../Constants';
 const PokemonList = (props) => {
   const [pokemons, setPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(18);
+  const [limit, setLimit] = useState(9);
 
   useEffect(() => {
     axios
@@ -17,6 +17,7 @@ const PokemonList = (props) => {
 
   const displayRows = () => {
     const rows = [];
+    console.log(pokemons);
     const numberOfColumns = 3;
     const numberOfRows = pokemons.length / numberOfColumns;
     let counter = 0;
