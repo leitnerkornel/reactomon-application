@@ -40,8 +40,6 @@ const PokemonList = (props) => {
     return rows;
   };
 
-  displayRows();
-
   return <div className='pokemon-card-container'>{displayRows()}</div>;
 };
 
