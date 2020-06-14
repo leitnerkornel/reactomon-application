@@ -17,7 +17,6 @@ const PokemonList = (props) => {
 
   const displayRows = () => {
     const rows = [];
-    console.log(pokemons);
     const numberOfColumns = 3;
     const numberOfRows = pokemons.length / numberOfColumns;
     let counter = 0;
@@ -29,9 +28,13 @@ const PokemonList = (props) => {
         columnNumber < numberOfColumns;
         columnNumber++
       ) {
-        row.push(<PokemonCard pokemon={pokemons[counter++]} />);
+        row.push(<PokemonCard key={uuidv4()} pokemon={pokemons[counter++]} />);
       }
-      rows.push(<div className='pokemon-list-row'>{row}</div>);
+      rows.push(
+        <div key={uuidv4()} className='pokemon-list-row'>
+          {row}
+        </div>
+      );
     }
 
     return rows;
