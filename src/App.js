@@ -11,13 +11,9 @@ import TypeList from './components/typelist/TypeList';
 import PokemonDetail from './components/pokemondetail/PokemonDetail';
 
 const App = (props) => {
-  const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon')
-      .then((res) => setPokemons(res.data.results));
     axios
       .get('https://pokeapi.co/api/v2/type')
       .then((res) => setTypes(res.data.results));
@@ -40,7 +36,7 @@ const App = (props) => {
           path='/pokemons'
           render={(props) => (
             <React.Fragment>
-              <PokemonList pokemons={pokemons} />
+              <PokemonList />
             </React.Fragment>
           )}
         />
