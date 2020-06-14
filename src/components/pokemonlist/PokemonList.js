@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
-import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { API_POKEMON_URL } from '../../Constants';
 
@@ -14,30 +13,33 @@ const PokemonList = (props) => {
     axios
       .get(`${API_POKEMON_URL}?offset=${offset}&limit=${limit}`)
       .then((res) => setPokemons(res.data.results));
-  });
+  }, [limit, offset]);
 
-  let content = (
-    <div style={pokemonListStyle} className='card-container'>
-      {pokemons.map((item) => (
-        <PokemonCard key={uuidv4()} pokemon={item} />
-      ))}
-    </div>
-  );
+  const displayRows = () => {
+    const rows = [];
+    console.log(pokemons);
+    const numberOfColumns = 3;
+    const numberOfRows = pokemons.length / numberOfColumns;
+    let counter = 0;
 
-  return content;
-};
+    for (let rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
+      let row = [];
+      for (
+        let columnNumber = 0;
+        columnNumber < numberOfColumns;
+        columnNumber++
+      ) {
+        row.push(<PokemonCard pokemon={pokemons[counter++]} />);
+      }
+      rows.push(<div className='pokemon-list-row'>{row}</div>);
+    }
 
-PokemonList.propTypes = {
-  pokemons: PropTypes.array.isRequired,
-};
+    return rows;
+  };
 
-const pokemonListStyle = {
-  marginTop: '40px',
-  width: '1000px',
-  display: 'flex',
-  flexFlow: 'row wrap',
-  textAlign: 'center',
-  alignContent: 'center',
+  displayRows();
+
+  return <div className='pokemon-card-container'>{displayRows()}</div>;
 };
 
 export default PokemonList;
