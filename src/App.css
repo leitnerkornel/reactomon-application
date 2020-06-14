@@ -83,3 +83,15 @@ a {
   font-style: italic;
   font-size: 18px;
 }
+
+.type-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type-image {
+  padding: 10px;
+  height: 100px;
+  width: 100px;
+}
