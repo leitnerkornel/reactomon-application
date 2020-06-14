@@ -1,10 +1,7 @@
 import React from 'react';
 import PokemonCardTitle from './PokemonCardTitle';
-import PokemonCardPicture from './PokemonCardPicture';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
-import './card.css';
 
 const PokemonCard = (props) => {
   const getPokemonIdFromUrl = () => {
@@ -15,34 +12,35 @@ const PokemonCard = (props) => {
   const name = props.pokemon.name;
   const pokemonId = getPokemonIdFromUrl();
 
-  let content = (
+  const cardPicture = () => {
+    return (
+      <div>
+        <img
+          className='pokemon-card-image'
+          src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`}
+          alt={`This is: ${props.title}`}
+          draggable='false'
+        />
+      </div>
+    );
+  };
+
+  return (
     <div style={{ margin: '10px' }}>
       <Link to={`/pokemon/${pokemonId}`}>
-        <div style={cardStyle} className={'card'}>
-          <PokemonCardPicture pictureId={pokemonId} title={name} />
+        <div style={cardStyle} className='pokemon-card'>
+          {cardPicture()}
           <PokemonCardTitle title={name} />
         </div>
       </Link>
     </div>
   );
-
-  return content;
 };
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
 };
 
-const cardStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '300px',
-  textAlign: 'center',
-  border: 'none',
-  borderRadius: '10px',
-  padding: '10px',
-  margin: 'auto',
-};
+const cardStyle = {};
 
 export default PokemonCard;
