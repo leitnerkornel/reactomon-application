@@ -1,7 +1,8 @@
 import React from 'react';
-import PokemonCardTitle from './PokemonCardTitle';
+/* import PokemonCardTitle from './PokemonCardTitle';*/
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { API_PICTURE_URL } from '../../Constants';
 
 const PokemonCard = (props) => {
   const getPokemonIdFromUrl = () => {
@@ -17,7 +18,7 @@ const PokemonCard = (props) => {
       <div>
         <img
           className='pokemon-card-image'
-          src={`https://pokeres.bastionbot.org/images/pokemon/${pokemonId}.png`}
+          src={`${API_PICTURE_URL}${pokemonId}.png`}
           alt={`This is: ${props.title}`}
           draggable='false'
         />
@@ -30,7 +31,7 @@ const PokemonCard = (props) => {
       <Link to={`/pokemon/${pokemonId}`}>
         <div style={cardStyle} className='pokemon-card'>
           {cardPicture()}
-          <PokemonCardTitle title={name} />
+          <div>{name}</div>
         </div>
       </Link>
     </div>
