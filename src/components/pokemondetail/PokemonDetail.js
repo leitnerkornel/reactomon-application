@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
-import PokemonDetailProperties from './PokemonDetailProperties';
-import PokemonDetailAbilities from './PokemonDetailAbilities';
-import PokemonDetailTypes from './PokemonDetailTypes';
 import { getPokemonIdFromWindowUrl, capitalize } from '../../Utils';
 import { API_PICTURE_URL, API_POKEMON_URL } from '../../Constants';
 
@@ -36,8 +34,8 @@ const PokemonDetail = () => {
     });
   }, [currentPokemonId]);
 
-  return (
-    <div className='detail-page-container' style={{ textAlign: 'center' }}>
+  const pictureNameCatchButton = () => {
+    return (
       <div className='detail-page-top-block'>
         <div className='detail-page-image-container'>
           <img
@@ -65,14 +63,70 @@ const PokemonDetail = () => {
           </div>
         </div>
       </div>
+    );
+  };
 
-      <PokemonDetailProperties
-        experience={baseExperience}
-        height={height}
-        weight={weight}
-      />
-      <PokemonDetailAbilities abilities={pokemonAbilities} />
-      <PokemonDetailTypes types={pokemonTypes} />
+  const propertiesAndAbilities = () => {
+    return (
+      <div className='abilities-container'>
+        <div className='detail-properties'>
+          <div className='detail-property-item'>
+            <div className='detail-property-title'>Experience:</div>
+            <div className='detail-property-value'>{baseExperience}</div>
+          </div>
+          <div className='detail-property-item'>
+            <div className='detail-property-title'>Height:</div>
+            <div className='detail-property-value'>{height}</div>
+          </div>
+          <div className='detail-property-item'>
+            <div className='detail-property-title'>Weight:</div>
+            <div className='detail-property-value'>{weight}</div>
+          </div>
+        </div>
+        <div className='detail-abilities'>
+          <div>
+            <div className='ability-container'>
+              <h3>Abilities</h3>
+              {pokemonAbilities.map((item) => {
+                return (
+                  <div key={uuidv4()} className='detail-ability-name'>
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const displayPokemonTypes = () => {
+    return (
+      <div className='detail-type-container'>
+        {pokemonTypes.map((item) => {
+          return (
+            <div className='detail-type-item'>
+              <img
+                className='detail-type-image'
+                key={uuidv4()}
+                src={`/pokemon_types/${item}.png`}
+                alt={`This is: ${item}`}
+                draggable='false'
+              />
+              <h4 key={uuidv4()}>{item}</h4>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  return (
+    <div className='detail-page-container' style={{ textAlign: 'center' }}>
+      {pictureNameCatchButton()}
+      {propertiesAndAbilities()}
+      {displayPokemonTypes()}
     </div>
   );
 };
