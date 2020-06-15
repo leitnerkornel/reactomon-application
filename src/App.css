@@ -267,7 +267,7 @@ h2 {
   width: 50%;
   text-align: left;
   font-weight: bold;
-  color: white;
+  color: red;
 }
 
 .ability-container {
@@ -282,7 +282,7 @@ h2 {
   margin-top: 5px;
   font-weight: bold;
   font-style: italic;
-  color: white;
+  color: navy;
 }
 
 h3 {
