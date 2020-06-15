@@ -121,3 +121,107 @@ a {
   font-weight: 500;
   font-size: 18px;
 }
+
+.detail-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-page-top-block {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  width: 50%;
+  height: 450px;
+}
+
+.detail-page-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  width: 60%;
+}
+
+.detail-page-image {
+  margin: auto;
+  height: 400px;
+  width: 400px;
+}
+
+.name-catch-button-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  height: 100%;
+  width: 40%;
+}
+
+.detail-pokemon-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+
+  margin: auto;
+  height: 40%;
+  width: 100%;
+}
+
+h2 {
+  margin: auto;
+  font-size: 42px;
+  font-style: italic;
+}
+
+.detail-page-catch-button {
+  display: flex;
+  flex-direction: row;
+  height: 60%;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+}
+
+.catch-button-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50%;
+  width: 40%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: black;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.catch-button-item:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.detail-catch-button-image-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 50%;
+  height: auto;
+}
+
+.pokeball-image {
+  width: 80%;
+  height: 80%;
+}
+
+.detail-catch-text {
+  width: 50%;
+  margin: auto;
+}
