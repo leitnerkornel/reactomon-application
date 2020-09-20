@@ -1,0 +1,33 @@
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.welcome-header {
+    font-size: calc(0.75em + 2vw);
+    margin-bottom: 10px;
+}
+
+.home-detail-text {
+    font-size: calc(0.75em + 1vw);
+}
+
+.home-link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-image {
+    margin: 50px auto;
+    width: 400px;
+    height: auto;
+}
+
+@media (max-width: 480px) {
+    .home-image {
+        width: 80%;
+    }
+}
