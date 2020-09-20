@@ -9,6 +9,10 @@
     height: auto;
 }
 
+.home-detail-text {
+    font-style: italic;
+}
+
 .home-link-container {
     display: flex;
     flex-direction: column;
