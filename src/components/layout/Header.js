@@ -17,7 +17,7 @@ const headerStyle = {
   background: '#333',
   color: '#fff',
   textAlign: 'center',
-  width: '100vW'
+  width: '100%'
 };
 
 const cyclopediaStyle = {
