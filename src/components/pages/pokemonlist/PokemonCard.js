@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { API_PICTURE_URL } from '../../Constants';
-import { getPokemonIdFromUrl } from '../../Utils';
+import { API_PICTURE_URL } from '../../../Constants';
+import { getPokemonIdFromUrl } from '../../../Utils';
 
 const PokemonCard = (props) => {
   const name = props.pokemon.name;

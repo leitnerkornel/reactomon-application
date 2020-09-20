@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PokemonCard from './PokemonCard';
 import { v4 as uuidv4 } from 'uuid';
-import { API_POKEMON_URL } from '../../Constants';
+import { API_POKEMON_URL } from '../../../Constants';
+
+import "./PokemonList.css";
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
