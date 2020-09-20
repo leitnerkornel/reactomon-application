@@ -8,15 +8,13 @@ const Navbar = () => {
     { id: 2, title: 'Types', route: 'types' },
   ];
 
-  let content = (
-    <div style={navbarStyle} className='navbar-container'>
-      {navbarTitles.map((item) => (
-        <NavbarItem key={item.id} title={item.title} route={item.route} />
-      ))}
-    </div>
+  return (
+      <div style={navbarStyle} className='navbar-container'>
+        {navbarTitles.map((item) => (
+            <NavbarItem key={item.id} title={item.title} route={item.route}/>
+        ))}
+      </div>
   );
-
-  return content;
 };
 
 const navbarStyle = {
