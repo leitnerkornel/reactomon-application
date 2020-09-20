@@ -11,7 +11,7 @@ const PokemonList = () => {
   //const [offset, setOffset] = useState(0);
   //const [limit, setLimit] = useState(9);
   const offset = 0;
-  const limit = 18;
+  const limit = 9;
 
   useEffect(() => {
     axios
@@ -44,7 +44,9 @@ const PokemonList = () => {
     return rows;
   };
 
-  return <div className='pokemon-card-container'>{displayRows()}</div>;
+  return <div className='pokemon-card-container'>{pokemons.map((pokemon) => {
+    return <PokemonCard key={uuidv4()} pokemon={pokemon}/>
+  })}</div>;
 };
 
 export default PokemonList;
