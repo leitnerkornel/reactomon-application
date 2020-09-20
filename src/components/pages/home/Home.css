@@ -4,13 +4,9 @@
     width: 100%;
 }
 
-.welcome-header {
-    font-size: calc(0.75em + 2vw);
-    margin-bottom: 10px;
-}
-
-.home-detail-text {
-    font-size: calc(0.75em + 1vw);
+.welcome-image {
+    width: 300px;
+    height: auto;
 }
 
 .home-link-container {
@@ -27,6 +23,10 @@
 }
 
 @media (max-width: 480px) {
+    .welcome-image {
+        width: 60vw;
+    }
+
     .home-image {
         width: 80%;
     }

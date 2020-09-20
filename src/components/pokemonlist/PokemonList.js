@@ -4,12 +4,12 @@ import PokemonCard from './PokemonCard';
 import { v4 as uuidv4 } from 'uuid';
 import { API_POKEMON_URL } from '../../Constants';
 
-const PokemonList = (props) => {
+const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
   //const [offset, setOffset] = useState(0);
   //const [limit, setLimit] = useState(9);
   const offset = 0;
-  const limit = 9;
+  const limit = 18;
 
   useEffect(() => {
     axios

@@ -6,7 +6,7 @@ import HomeLinkButton from "./HomeLinkButton";
 const Home = () => {
   return (
       <div className="home-container">
-        <h1 className="welcome-header">Welcome to the PokéCyclopedia</h1>
+        <img src={"./welcome_pokecyclopedia.png"} alt="Welcome to the PokéCyclopedia!" className="welcome-image" draggable='false'/>
         <div className="home-link-container">
 
             <p className="home-detail-text">On this site you can browse</p>
