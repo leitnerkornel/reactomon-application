@@ -40,6 +40,22 @@ const App = () => {
               )}
           />
           <Route
+            path='/collection'
+            render={() => (
+              <React.Fragment>
+                <div>Collection</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path='/about'
+            render={() => (
+              <React.Fragment>
+                <div>About</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
               path={'/pokemon/:pokemonId'}
               render={() => (
                   <React.Fragment>

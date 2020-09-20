@@ -8,6 +8,8 @@ const Navbar = () => {
     { id: 0, title: 'Home', route: '' },
     { id: 1, title: 'Pokémons', route: 'pokemons' },
     { id: 2, title: 'Types', route: 'types' },
+    { id: 3, title: 'Collection', route: 'collection' },
+    { id: 4, title: 'About', route: 'about' },
   ];
 
   return (
