@@ -2,23 +2,22 @@ import React from 'react';
 import Navbar from './Navbar';
 
 const Header = () => {
-  let content = (
-    <header style={headerStyle}>
-      <h1>
-        <span style={pokéStyle}>Poké</span>
-        <span style={cyclopediaStyle}>Cyclopedia</span>
-      </h1>
-      <Navbar></Navbar>
-    </header>
+  return (
+      <header style={headerStyle}>
+        <h1>
+          <span style={pokeStyle}>Poké</span>
+          <span style={cyclopediaStyle}>Cyclopedia</span>
+        </h1>
+        <Navbar/>
+      </header>
   );
-  return content;
 };
 
 const headerStyle = {
   background: '#333',
   color: '#fff',
   textAlign: 'center',
-  padding: '10px',
+  width: '100vW'
 };
 
 const cyclopediaStyle = {
@@ -36,7 +35,7 @@ const cyclopediaStyle = {
   color: '#fff',
 };
 
-const pokéStyle = {
+const pokeStyle = {
   MozUserSelect: 'none',
   WebkitUserSelect: 'none',
   msUserSelect: 'none',
