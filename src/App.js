@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Header from './components/layout/Header';
-import Home from './components/pages/Home';
+import Home from './components/pages/home/Home';
 
 import './App.css';
 import PokemonList from './components/pokemonlist/PokemonList';
@@ -10,48 +10,62 @@ import TypeList from './components/typelist/TypeList';
 import PokemonDetail from './components/pokemondetail/PokemonDetail';
 
 const App = () => {
-  let content = (
-    <Router>
-      <div className='App'>
-        <Header />
-        <Route
-          exact
-          path='/'
-          render={() => (
-            <React.Fragment>
-              <Home />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          path='/pokemons'
-          render={(props) => (
-            <React.Fragment>
-              <PokemonList />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          path='/types'
-          render={(props) => (
-            <React.Fragment>
-              <TypeList />
-            </React.Fragment>
-          )}
-        />
-        <Route
-          path={'/pokemon/:pokemonId'}
-          render={(props) => (
-            <React.Fragment>
-              <PokemonDetail />
-            </React.Fragment>
-          )}
-        />
-      </div>
-    </Router>
+  return (
+      <Router>
+        <div className='App'>
+          <Header/>
+          <Route
+              exact
+              path='/'
+              render={() => (
+                  <React.Fragment>
+                    <Home/>
+                  </React.Fragment>
+              )}
+          />
+          <Route
+              path='/pokemons'
+              render={() => (
+                  <React.Fragment>
+                    <PokemonList/>
+                  </React.Fragment>
+              )}
+          />
+          <Route
+              path='/types'
+              render={() => (
+                  <React.Fragment>
+                    <TypeList/>
+                  </React.Fragment>
+              )}
+          />
+          <Route
+            path='/collection'
+            render={() => (
+              <React.Fragment>
+                <div>Collection</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
+            path='/about'
+            render={() => (
+              <React.Fragment>
+                <div>About</div>
+              </React.Fragment>
+            )}
+          />
+          <Route
+              path={'/pokemon/:pokemonId'}
+              render={() => (
+                  <React.Fragment>
+                    <PokemonDetail/>
+                  </React.Fragment>
+              )}
+          />
+        </div>
+      </Router>
   );
-
-  return content;
 };
 
 export default App;
