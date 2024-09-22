@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
+import { useParams } from 'react-router';
 
-import { getPokemonIdFromWindowUrl, capitalize } from '../../Utils';
-import { API_PICTURE_URL, API_POKEMON_URL } from '../../Constants';
+import { capitalize } from '../../Utils';
+import { API_POKEMON_URL } from '../../Constants';
 
 const PokemonDetail = () => {
   const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -13,10 +14,11 @@ const PokemonDetail = () => {
   const [weight, setWeight] = useState('');
   const [baseExperience, setBaseExperience] = useState('');
 
-  const currentPokemonId = getPokemonIdFromWindowUrl();
+  const { pokemonId } = useParams()
+  const imageSrc = `${process.env.REACT_APP_PICTURE_BASE_URL}${name}.jpg`
 
   useEffect(() => {
-    axios.get(`${API_POKEMON_URL}/${currentPokemonId}`).then((res) => {
+    axios.get(`${API_POKEMON_URL}/${pokemonId}`).then((res) => {
       setName(res.data.name);
       setHeight(res.data.height.toString());
       setWeight(res.data.weight.toString());
@@ -32,7 +34,7 @@ const PokemonDetail = () => {
         })
       );
     });
-  }, [currentPokemonId]);
+  }, [pokemonId]);
 
   const pictureNameCatchButton = () => {
     return (
@@ -40,7 +42,7 @@ const PokemonDetail = () => {
         <div className='detail-page-image-container'>
           <img
             className='detail-page-image'
-            src={`${API_PICTURE_URL}${currentPokemonId}.png`}
+            src={imageSrc}
             alt={`This is: ${name}.`}
             draggable='false'
           />
@@ -106,10 +108,12 @@ const PokemonDetail = () => {
       <div className='detail-type-container'>
         {pokemonTypes.map((item) => {
           return (
-            <div className='detail-type-item'>
+            <div
+              key={uuidv4()}
+              className='detail-type-item'
+            >
               <img
                 className='detail-type-image'
-                key={uuidv4()}
                 src={`/pokemon_types/${item}.png`}
                 alt={`This is: ${item}`}
                 draggable='false'
