@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import TypeCard from './TypeCard';
 import { v4 as uuidv4 } from 'uuid';
-import { API_POKEMON_TYPE_URL } from '../../Constants';
 
 const TypeList = () => {
   const [types, setTypes] = useState([]);
 
   useEffect(() => {
-    axios.get(API_POKEMON_TYPE_URL).then((res) => setTypes(res.data.results));
+    axios.get(`${process.env.REACT_APP_POKEMON_TYPE_BASE_URL}?offset=0&limit=100`).then((res) => {
+      setTypes([...res.data.results]);
+    })
   }, []);
 
   const displayTypes = () => {
     const rows = [];
     const numberOfColumns = 5;
-    const numberOfRows = types.length / numberOfColumns;
+    const numberOfRows = Math.floor(types.length / numberOfColumns);
 
     let counter = 0;
 

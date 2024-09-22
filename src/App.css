@@ -95,6 +95,7 @@ a {
   margin: auto;
   height: 400px;
   width: 400px;
+  border-radius: 5%;
 }
 
 .name-catch-button-block {
