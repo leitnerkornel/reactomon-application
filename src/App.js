@@ -5,7 +5,7 @@ import Header from './components/layout/Header';
 import Home from './components/pages/home/Home';
 
 import './App.css';
-import PokemonList from './components/pokemonlist/PokemonList';
+import PokemonList from './components/pages/pokemonlist/PokemonList';
 import TypeList from './components/typelist/TypeList';
 import PokemonDetail from './components/pokemondetail/PokemonDetail';
 
