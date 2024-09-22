@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { API_PICTURE_URL } from '../../Constants';
-import { getPokemonIdFromUrl } from '../../Utils';
+import { getPokemonIdFromUrl } from '../../../Utils';
 
 const PokemonCard = (props) => {
   const name = props.pokemon.name;
   const pokemonId = getPokemonIdFromUrl(props.pokemon.url);
+  const imageSrc = `${process.env.REACT_APP_PICTURE_BASE_URL}${name}.jpg`
 
   const cardPicture = () => {
     return (
       <div>
         <img
           className='pokemon-card-image'
-          src={`${API_PICTURE_URL}${pokemonId}.png`}
+          src={imageSrc}
           alt={`This is: ${name}.`}
           draggable='false'
         />
