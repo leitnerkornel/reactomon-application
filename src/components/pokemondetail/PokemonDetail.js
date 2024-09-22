@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 import { capitalize } from '../../Utils';
-import { API_POKEMON_URL } from '../../Constants';
 
 const PokemonDetail = () => {
   const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -16,9 +15,10 @@ const PokemonDetail = () => {
 
   const { pokemonId } = useParams()
   const imageSrc = `${process.env.REACT_APP_PICTURE_BASE_URL}${name}.jpg`
+  const pokemonUrl = `${process.env.REACT_APP_POKEMON_BASE_URL}/${pokemonId}`
 
   useEffect(() => {
-    axios.get(`${API_POKEMON_URL}/${pokemonId}`).then((res) => {
+    axios.get(pokemonUrl).then((res) => {
       setName(res.data.name);
       setHeight(res.data.height.toString());
       setWeight(res.data.weight.toString());
@@ -34,7 +34,7 @@ const PokemonDetail = () => {
         })
       );
     });
-  }, [pokemonId]);
+  }, [pokemonUrl]);
 
   const pictureNameCatchButton = () => {
     return (
