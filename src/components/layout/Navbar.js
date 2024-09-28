@@ -15,7 +15,11 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       {navbarTitles.map((item) => (
-        <NavbarItem key={item.id} title={item.title} route={item.route} />
+        <NavbarItem
+          key={item.id}
+          title={item.title}
+          route={item.route}
+        />
       ))}
     </div>
   )

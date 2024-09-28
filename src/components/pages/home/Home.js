@@ -14,9 +14,15 @@ const Home = () => {
       />
       <div className="home-link-container">
         <p className="home-detail-text">On this site you can browse</p>
-        <HomeLinkButton route="pokemons" title="Pokémons" />
+        <HomeLinkButton
+          route="pokemons"
+          title="Pokémons"
+        />
         <p className="home-detail-text">and their</p>
-        <HomeLinkButton route="types" title="Types" />
+        <HomeLinkButton
+          route="types"
+          title="Types"
+        />
       </div>
       <img
         className="home-image"

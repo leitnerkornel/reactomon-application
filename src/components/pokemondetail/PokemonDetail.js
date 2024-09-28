@@ -92,7 +92,10 @@ const PokemonDetail = () => {
               <h3>Abilities</h3>
               {pokemonAbilities.map((item) => {
                 return (
-                  <div key={uuidv4()} className="detail-ability-name">
+                  <div
+                    key={uuidv4()}
+                    className="detail-ability-name"
+                  >
                     {item}
                   </div>
                 )
@@ -109,7 +112,10 @@ const PokemonDetail = () => {
       <div className="detail-type-container">
         {pokemonTypes.map((item) => {
           return (
-            <div key={uuidv4()} className="detail-type-item">
+            <div
+              key={uuidv4()}
+              className="detail-type-item"
+            >
               <img
                 className="detail-type-image"
                 src={`/pokemon_types/${item}.png`}
@@ -125,7 +131,10 @@ const PokemonDetail = () => {
   }
 
   return (
-    <div className="detail-page-container" style={{ textAlign: 'center' }}>
+    <div
+      className="detail-page-container"
+      style={{ textAlign: 'center' }}
+    >
       {pictureNameCatchButton()}
       {propertiesAndAbilities()}
       {displayPokemonTypes()}

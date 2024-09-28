@@ -23,7 +23,10 @@ const PokemonList = () => {
   return (
     <div className="pokemon-card-container">
       {pokemons.map((pokemon) => (
-        <PokemonCard key={uuidv4()} pokemon={pokemon} />
+        <PokemonCard
+          key={uuidv4()}
+          pokemon={pokemon}
+        />
       ))}
     </div>
   )

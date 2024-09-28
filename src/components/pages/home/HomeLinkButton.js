@@ -9,7 +9,10 @@ const HomeLinkButton = (props) => {
 
   return (
     <div className="home-link-button">
-      <Link to={`/${route}`} className="home-link">
+      <Link
+        to={`/${route}`}
+        className="home-link"
+      >
         <div className="home-link-button-title">{title}</div>
       </Link>
     </div>

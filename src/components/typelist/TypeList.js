@@ -19,7 +19,10 @@ const TypeList = () => {
   return (
     <div className="type-container">
       {types.map((type) => (
-        <TypeCard key={uuidv4()} type={type} />
+        <TypeCard
+          key={uuidv4()}
+          type={type}
+        />
       ))}
     </div>
   )

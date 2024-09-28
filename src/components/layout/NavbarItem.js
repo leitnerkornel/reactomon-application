@@ -9,7 +9,10 @@ const NavbarItem = (props) => {
   const route = `/${props.route}`
 
   return (
-    <Link to={route} className="navbar-link">
+    <Link
+      to={route}
+      className="navbar-link"
+    >
       {title}
     </Link>
   )
