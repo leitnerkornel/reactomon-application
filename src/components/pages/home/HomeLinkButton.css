@@ -1,34 +1,36 @@
 .home-link-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 130px;
-    height: 40px;
-    border-radius: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 40px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .home-link {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-link-button-title {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    height: 30px;
-    background-color: #333333;
-    color: white;
-    font-weight: bold;
-    border-radius: 15px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 30px;
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
 }
 
 .home-link-button-title:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
 }
