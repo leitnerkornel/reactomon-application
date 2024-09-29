@@ -38,7 +38,6 @@
 }
 
 .pokemon-card-name {
-  font-weight: 500;
-  font-style: italic;
-  font-size: 18px;
+  font-family: 'Alata', sans-serif;
+  font-size: 1.25rem;
 }

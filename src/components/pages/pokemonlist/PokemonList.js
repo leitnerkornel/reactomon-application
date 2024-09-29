@@ -17,7 +17,7 @@ const PokemonList = () => {
       .get(
         `${process.env.REACT_APP_POKEMON_BASE_URL}?offset=${offset}&limit=${limit}`
       )
-      .then((res) => setPokemons(res.data.results))
+      .then(({ data }) => setPokemons(data.results))
   }, [limit, offset])
 
   return (
