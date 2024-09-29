@@ -1,6 +1,6 @@
 ## Reactomon Application - PokéCyclopedia
 
-This is small SPA created with React. 
+This is small SPA created with React.
 
 You can reach the site here:
 https://pokecyclopedia.netlify.app/
@@ -78,7 +78,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-  
+
 </details>
-
-

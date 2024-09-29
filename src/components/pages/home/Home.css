@@ -1,37 +1,37 @@
 .home-container {
-    text-align: center;
-    margin-top: 50px;
-    width: 100%;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
 }
 
 .welcome-image {
-    width: 300px;
-    height: auto;
+  width: 300px;
+  height: auto;
 }
 
 .home-detail-text {
-    font-style: italic;
+  font-style: italic;
 }
 
 .home-link-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-image {
-    margin: 50px auto;
-    width: 400px;
-    height: auto;
+  margin: 50px auto;
+  width: 400px;
+  height: auto;
 }
 
 @media (max-width: 480px) {
-    .welcome-image {
-        width: 60vw;
-    }
+  .welcome-image {
+    width: 60vw;
+  }
 
-    .home-image {
-        width: 80%;
-    }
+  .home-image {
+    width: 80%;
+  }
 }
