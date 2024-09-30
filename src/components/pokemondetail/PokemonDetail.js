@@ -48,6 +48,10 @@ const PokemonDetail = () => {
             src={imageSrc}
             alt={`This is: ${name}.`}
             draggable="false"
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null
+              currentTarget.src = '/pokemon_not_found_400.png'
+            }}
           />
         </div>
         <div className="name-catch-button-block">
