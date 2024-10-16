@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import PokemonCardImage from './PokemonCardImage'
 import { getPokemonIdFromUrl } from '../../../Utils'
 
 const PokemonCard = (props) => {
@@ -8,23 +9,13 @@ const PokemonCard = (props) => {
   const pokemonId = getPokemonIdFromUrl(props.pokemon.url)
   const imageSrc = `${process.env.REACT_APP_PICTURE_BASE_URL}${name}.jpg`
 
-  const cardPicture = () => {
-    return (
-      <div>
-        <img
-          className="pokemon-card-image"
-          src={imageSrc}
-          alt={`This is: ${name}.`}
-          draggable="false"
-        />
-      </div>
-    )
-  }
-
   return (
     <Link to={`/pokemon/${pokemonId}`}>
       <div className="pokemon-card">
-        {cardPicture()}
+        <PokemonCardImage
+          imageSrc={imageSrc}
+          pokemonName={name}
+        />
         <div className="pokemon-card-name">{name}</div>
       </div>
     </Link>
