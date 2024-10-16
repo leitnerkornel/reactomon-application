@@ -6,6 +6,7 @@ import CatchPokemonButton from './CatchPokemonButton'
 import PokemonAttributesBox from './PokemonAttributesBox'
 import PokemonAbilitiesBox from './PokemonAbilitiesBox'
 import PokemonTypeBox from './PokemonTypeBox'
+import PokemonDetailPicture from './PokemonDetailPicture'
 
 import './PokemonDetail.css'
 
@@ -42,18 +43,10 @@ const PokemonDetail = () => {
   const pictureNameCatchButton = () => {
     return (
       <div className="detail-page-top-block">
-        <div className="detail-page-image-container">
-          <img
-            className="detail-page-image"
-            src={imageSrc}
-            alt={`This is: ${name}.`}
-            draggable="false"
-            onError={({ currentTarget }) => {
-              currentTarget.onerror = null
-              currentTarget.src = '/pokemon_not_found_400.png'
-            }}
-          />
-        </div>
+        <PokemonDetailPicture
+          imageSrc={imageSrc}
+          pokemonName={name}
+        />
         <div className="name-catch-button-block">
           <div className="detail-page-pokemon-name">{name}</div>
           <CatchPokemonButton isCatched={true} />

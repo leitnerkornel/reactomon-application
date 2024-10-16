@@ -21,21 +21,6 @@
   }
 }
 
-.detail-page-image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  height: 100%;
-}
-
-.detail-page-image {
-  margin: auto;
-  height: 400px;
-  width: 400px;
-  border-radius: 5%;
-}
-
 .detail-page-pokemon-name {
   padding: 20px;
   font-family: 'Alata', sans-serif;
@@ -43,10 +28,6 @@
 }
 
 @media (max-width: 650px) {
-  .detail-page-image {
-    height: 250px;
-    width: 250px;
-  }
   .name-catch-button-block {
     flex-direction: row;
   }
