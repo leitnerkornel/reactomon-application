@@ -1,0 +1,12 @@
+.pokemon-card-image {
+  padding: 10px;
+  height: 200px;
+  width: 200px;
+  border-radius: 10%;
+  opacity: 0;
+}
+
+.pokemon-card-image.loaded {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}
