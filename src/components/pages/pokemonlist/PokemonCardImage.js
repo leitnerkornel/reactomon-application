@@ -11,6 +11,7 @@ const PokemonCardImage = ({ imageSrc, pokemonName }) => {
       src={imageSrc}
       alt={`This is: ${pokemonName}.`}
       draggable="false"
+      loading="lazy"
       onError={({ currentTarget }) => {
         currentTarget.onerror = null
         currentTarget.src = '/pokemon_not_found.png'
