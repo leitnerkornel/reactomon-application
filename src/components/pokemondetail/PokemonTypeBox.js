@@ -17,6 +17,7 @@ const PokemonTypeBox = ({ pokemonTypes }) => {
               src={`/pokemon_types/${item}.png`}
               alt={`This is: ${item}`}
               draggable="false"
+              loading="lazy"
             />
             <h4 key={uuidv4()}>{item}</h4>
           </div>
