@@ -15,6 +15,7 @@ const TypeCard = (props) => {
         src={`/pokemon_types/${name}.png`}
         alt={`This is: ${name}`}
         draggable="false"
+        loading="lazy"
         onError={({ currentTarget }) => {
           currentTarget.onerror = null
           currentTarget.src = '/pokemon_types/pokemon_type_not_found.png'
